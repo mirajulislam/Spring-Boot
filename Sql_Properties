@@ -1,0 +1,14 @@
+spring.datasource.url=jdbc:sqlserver://Miraj;databaseName=msdb
+spring.datasource.username=sa
+spring.datasource.password=miraj00178
+spring.datasource.driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+spring.jpa.show-sql=true
+spring.jpa.hibernate.dialect=org.hibernate.dialect.SQLServer2017Dialect
+spring.jpa.hibernate.ddl-auto =update
+
+# thumeleaf configurations
+spring.thymeleaf.mode= LEGACYHTML5
+spring.thymeleaf.cache=false
+
+
