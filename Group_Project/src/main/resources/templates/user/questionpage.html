@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+
+<head>
+ <title>Save</title>
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+</head>
+
+<body>
+ <div class="container">
+  <form class="form-horizontal" role="form" method="POST" th:action="@{/questionAns}">
+	  <div class="row">
+				<div class="col-md-3 field-label-responsive">
+					<label for="batchName">Your First Question Choose</label>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+							<div class="input-group-addon" style="width: 2.6rem">
+								<i class="fa fa-at"></i>
+							</div>
+
+
+							<select name="quesId" id="quesId" class="form-control">
+								<option value="">.......</option>
+								<option th:each="userquestion:${quesname}"
+								th:value="${userquestion.quesId}"
+								th:utext="${userquestion.quesName}"></option>
+							</select>
+						</div>
+					</div>
+				</div>
+				
+   </div>
+       <div class="row">
+             <div class="col-md-3 field-label-responsive">
+                 <label for="name">Answer 1</label>
+             </div>
+             <div class="col-md-6">
+                 <div class="form-group">
+                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                         <input type="text"  class="form-control" id="firstAnswer"
+                                placeholder="answer" required autofocus>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         
+           <div class="row">
+				<div class="col-md-3 field-label-responsive">
+					<label for="batchName">Your Second Question Choose</label>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+							<div class="input-group-addon" style="width: 2.6rem">
+								<i class="fa fa-at"></i>
+							</div>
+
+
+							<select name="quesId" id="quesId" class="form-control">
+								<option value="">.......</option>
+								<option th:each="userquestion:${quesname}"
+								th:value="${userquestion.quesName}"
+								th:utext="${userquestion.quesName}"></option>
+							</select>
+						</div>
+					</div>
+				</div>
+				
+   </div>
+       <div class="row">
+             <div class="col-md-3 field-label-responsive">
+                 <label for="name">Answer 2</label>
+             </div>
+             <div class="col-md-6">
+                 <div class="form-group">
+                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                         <input type="text" class="form-control" id="secondAnswer"
+                                placeholder="First Name" required autofocus>
+                     </div>
+                 </div>
+             </div>
+         </div>
+          <div class="row">
+             <div class="col-md-3"></div>
+             <div class="col-md-6">
+                 <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i>Save</button>
+             </div>
+         </div>
+         </form>
+ </div>
+</body>
+</html>
+

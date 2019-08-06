@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+        
+        <div class="container">
+      <form class="form-horizontal" role="form" method="get" th:action="@{/getData}" >
+      <h1>This is your Second Step For security Purpose....</h1>
+ <center>
+            <span th:text="'Hi: ' + ${email}"></span>
+        </center>
+
+          <div class="row">
+             <div class="col-md-3"></div>
+             <div class="col-md-6">
+                 <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i>Click Second step</button>
+             </div>
+         </div>
+         </form>
+ </div>
+</body>
+</html>
