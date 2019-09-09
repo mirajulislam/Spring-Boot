@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: mirajul.islam
+Build-Jdk: 9.0.1
+Implementation-Title: Naztech_login_register_module
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.example
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/Naztech_login_register_module
+Created-By: Maven Integration for Eclipse
+
