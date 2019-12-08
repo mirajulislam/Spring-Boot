@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add Product</title>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<!-- <script>
+$(function(){
+	$("#header").load("HeadFoot/header.html");
+})
+</script> -->
+<body >
+
+
+	 <div class="row col-lg-4 col-lg-offset-4"
+			style="margin-top: 40px; background-color: #fff; padding: 20px; border: solid 1px #ddd;">
+
+			<form autocomplete="off" action="#" th:action="@{/productInsert}"
+				th:object="${product}" method="post" class="form-signin" role="form">
+				<h3 class="form-signin-heading">Product Details</h3>
+
+				<div class="form-group">
+					<div class="">
+						<input type="text" th:field="*{pro_name}"
+							placeholder="Product Name" class="form-control" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="">
+						<input type="text" th:field="*{pro_pre_price}"
+							placeholder="Product Present Price" class="form-control" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="">
+						<input type="text" th:field="*{pro_past_price}"
+							placeholder="Product Past Price" class="form-control" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="">
+						<input type="text" th:field="*{pro_total}"
+							placeholder="Limitetion Of Product" class="form-control" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="">
+						<input type="text" th:field="*{product_Category}"
+							placeholder="Product Categories" class="form-control" />
+					</div>
+				</div>
+
+				
+		<!-- 		<div class="form-group">
+					<div class="">
+							
+							<select name="tx_question_name" id="tx_question_name" class="form-control">
+								<option value="">.......</option>
+								<option th:each="question_table:${questions}"
+								th:value="${question_table.tx_question_name}"
+								th:utext="${question_table.tx_question_name}"></option>
+							</select>
+					</div>
+				</div> -->
+
+				<div class="form-group">
+					<div class="">
+						<input type="file" th:field="*{pro_images}"
+							placeholder="Product Images" class="form-control" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="">
+						<input type="text" th:field="*{pro_description}"
+							placeholder="Product Descreption" class="form-control" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="">
+						<button type="submit" class="btn btn-primary btn-block">Save Product</button>
+					</div>
+				</div>
+
+                	<span th:utext="${successMessage}"></span>
+				<div class="alert alert-success alert-dismissible col-sm-12"
+					th:if="${(bindingResult != null && bindingResult.getAllErrors() != null)}">
+					<button type="button" class="close" data-dismiss="alert"
+						aria-hidden="true">×</button>
+					<ul th:each="data : ${bindingResult.getAllErrors()}">
+						<li
+							th:text="${data.getObjectName() + ' :: ' + data.getDefaultMessage()}"></li>
+					</ul>
+				</div>
+
+			</form>
+		</div> 
+		
+	
+</body>
+</html>
