@@ -2,25 +2,29 @@ package com.example.demo.entites;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
-@Table(name = "create_category_table")
+@Table(name = "product_Category")
 public class Product_Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int     cat_id;
 	private String  cat_name;
 	private String  cat_des;
-	private Date    cat_create_date;
+	private String  cat_type;
     private Date    cat_pro_insert_date;
     private Date    cat_pro_update_date;
     private Date    cat_pro_deleteDate;
 	private boolean cat_pro_active;
-	
+
 	public Product_Category() {
 		
 	}
@@ -49,61 +53,41 @@ public class Product_Category {
 		this.cat_des = cat_des;
 	}
 
-
-
-	public Date getCat_create_date() {
-		return cat_create_date;
+	public String getCat_type() {
+		return cat_type;
 	}
 
-
-
-	public void setCat_create_date(Date cat_create_date) {
-		this.cat_create_date = cat_create_date;
+	public void setCat_type(String cat_type) {
+		this.cat_type = cat_type;
 	}
-
-
 
 	public Date getCat_pro_insert_date() {
 		return cat_pro_insert_date;
 	}
 
-
-
 	public void setCat_pro_insert_date(Date cat_pro_insert_date) {
 		this.cat_pro_insert_date = cat_pro_insert_date;
 	}
-
-
 
 	public Date getCat_pro_update_date() {
 		return cat_pro_update_date;
 	}
 
-
-
 	public void setCat_pro_update_date(Date cat_pro_update_date) {
 		this.cat_pro_update_date = cat_pro_update_date;
 	}
-
-
 
 	public Date getCat_pro_deleteDate() {
 		return cat_pro_deleteDate;
 	}
 
-
-
 	public void setCat_pro_deleteDate(Date cat_pro_deleteDate) {
 		this.cat_pro_deleteDate = cat_pro_deleteDate;
 	}
 
-
-
 	public boolean isCat_pro_active() {
 		return cat_pro_active;
 	}
-
-
 
 	public void setCat_pro_active(boolean cat_pro_active) {
 		this.cat_pro_active = cat_pro_active;
@@ -111,18 +95,19 @@ public class Product_Category {
 
 
 
-	public Product_Category(int cat_id, String cat_name, String cat_des, Date cat_create_date, Date cat_pro_insert_date,
+	public Product_Category(String cat_name, String cat_des, String cat_type, Date cat_pro_insert_date,
 			Date cat_pro_update_date, Date cat_pro_deleteDate, boolean cat_pro_active) {
 
-		this.cat_id = cat_id;
 		this.cat_name = cat_name;
 		this.cat_des = cat_des;
-		this.cat_create_date = cat_create_date;
+		this.cat_type = cat_type;
 		this.cat_pro_insert_date = cat_pro_insert_date;
 		this.cat_pro_update_date = cat_pro_update_date;
 		this.cat_pro_deleteDate = cat_pro_deleteDate;
 		this.cat_pro_active = cat_pro_active;
+	
 	}
-
+	
+	
 
 }

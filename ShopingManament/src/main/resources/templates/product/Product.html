@@ -25,7 +25,7 @@ $(function(){
 	 <div class="row col-lg-4 col-lg-offset-4"
 			style="margin-top: 40px; background-color: #fff; padding: 20px; border: solid 1px #ddd;">
 
-			<form autocomplete="off" action="#" th:action="@{/productInsert}"
+			<form autocomplete="off" action="#" th:action="@{/saveProduct}"
 				th:object="${product}" method="post" class="form-signin" role="form">
 				<h3 class="form-signin-heading">Product Details</h3>
 
@@ -57,25 +57,18 @@ $(function(){
 					</div>
 				</div>
 
+				
 				<div class="form-group">
 					<div class="">
-						<input type="text" th:field="*{product_Category}"
-							placeholder="Product Categories" class="form-control" />
-					</div>
-				</div>
-
-				
-		<!-- 		<div class="form-group">
-					<div class="">
 							
-							<select name="tx_question_name" id="tx_question_name" class="form-control">
-								<option value="">.......</option>
-								<option th:each="question_table:${questions}"
-								th:value="${question_table.tx_question_name}"
-								th:utext="${question_table.tx_question_name}"></option>
+							<select name="cat_id" id="cat_id"  class="form-control">
+								<option value="">Choose Categories</option>
+								<option th:each="product_Category:${proCatList}"
+								th:value="${product_Category.cat_id}"
+								th:utext="${product_Category.cat_name}"></option>
 							</select>
 					</div>
-				</div> -->
+				</div>
 
 				<div class="form-group">
 					<div class="">
@@ -96,8 +89,12 @@ $(function(){
 						<button type="submit" class="btn btn-primary btn-block">Save Product</button>
 					</div>
 				</div>
-
-                	<span th:utext="${successMessage}"></span>
+               
+              
+            
+             <div class="col-md-6">
+              <div class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}">
+            </div> </div>
 				<div class="alert alert-success alert-dismissible col-sm-12"
 					th:if="${(bindingResult != null && bindingResult.getAllErrors() != null)}">
 					<button type="button" class="close" data-dismiss="alert"
